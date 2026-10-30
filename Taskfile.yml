@@ -2,8 +2,19 @@ version: '3'
 
 tasks:
   build:
+    desc: Build for linux/arm64
     env:
       GOOS: linux
       GOARCH: arm64
     cmds:
       - go build -o ./bin/clockled-arm -ldflags="-s -w" ./main.go
+  
+  test:
+    desc: Run tests
+    cmds:
+      - go test -v ./...
+
+  vet:
+    desc: Run go vet
+    cmds:
+      - go vet ./...
