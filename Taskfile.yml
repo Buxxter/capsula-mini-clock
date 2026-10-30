@@ -1,0 +1,9 @@
+version: '3'
+
+tasks:
+  build:
+    env:
+      GOOS: linux
+      GOARCH: arm64
+    cmds:
+      - go build -o ./bin/clockled-arm -ldflags="-s -w" ./main.go
